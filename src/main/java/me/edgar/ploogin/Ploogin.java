@@ -53,12 +53,10 @@ public final class Ploogin extends JavaPlugin implements Listener {
         World world = player.getWorld();
         Block block = loc.getBlock();
         final int[] slotsFilled = {0};
-                player.getInventory().forEach(itemStack -> {
-                    if (itemStack != null) {
-                        slotsFilled[0]++;
-                    }
-                });
-
-
+        player.getInventory().forEach(itemStack -> {
+            if (itemStack != null) {
+                slotsFilled[0]++;
+            }
+        });
     }
 }
