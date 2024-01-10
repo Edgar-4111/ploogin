@@ -14,7 +14,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
-
 import java.util.concurrent.atomic.AtomicInteger;
 
 public final class Ploogin extends JavaPlugin implements Listener {
