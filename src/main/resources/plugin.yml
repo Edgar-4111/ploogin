@@ -1,0 +1,4 @@
+name: ploogin
+version: '${project.version}'
+main: me.edgar.ploogin.Ploogin
+api-version: '1.16'
