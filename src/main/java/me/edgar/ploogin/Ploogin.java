@@ -58,11 +58,12 @@ public final class Ploogin extends JavaPlugin implements Listener {
                 slotsFilled[0]++;
             }
         });
-        player.getInventory().forEach(itemStack -> {
-            if (itemStack != null && slotsFilled[0] > 20) {
-                slotsFilled[0]--;
-                player.getWorld().dropItemNaturally(player.getLocation(), itemStack);
-            }
-        });
+        if(slotsFilled[0] > 20) {
+            player.getInventory().forEach(itemStack -> {
+                if (itemStack != null) {
+                    world.dropItemNaturally(loc, itemStack);
+                }
+            });
+        }
     }
 }
