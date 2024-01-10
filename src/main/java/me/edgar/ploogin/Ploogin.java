@@ -52,22 +52,13 @@ public final class Ploogin extends JavaPlugin implements Listener {
         Location loc = player.getLocation();
         World world = player.getWorld();
         Block block = loc.getBlock();
-        //check inventory of the player every 2 ticks using a scheduler
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                //check if more than 20 inventory slots are filled
-                final int[] slotsFilled = {0};
+        final int[] slotsFilled = {0};
                 player.getInventory().forEach(itemStack -> {
                     if (itemStack != null) {
                         slotsFilled[0]++;
                     }
                 });
 
-            }
-        }.runTaskTimer(this, 0, 2);
 
     }
-
-
 }
