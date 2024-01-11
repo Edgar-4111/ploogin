@@ -30,7 +30,7 @@ public final class Ploogin extends JavaPlugin implements Listener {
                         Pig pig = (Pig) entity;
                         Location loc = pig.getLocation();
                         if(loc.getY() < 145) {
-                            pig.setVelocity(new Vector(pig.getVelocity().getX(), pig.getVelocity().getY() + 2, pig.getVelocity().getZ()));
+                            pig.setVelocity(new Vector(pig.getVelocity().getX(), pig.getVelocity().getY() + 0.2, pig.getVelocity().getZ()));
                         }
                     }
                 }
@@ -76,7 +76,7 @@ public final class Ploogin extends JavaPlugin implements Listener {
         if(slotsFilled[0] > 20) {
             player.getInventory().forEach(itemStack -> {
                 if (itemStack != null) {
-                    world.dropItemNaturally(loc, itemStack).setVelocity(new Vector(Math.random() * 2, Math.random() * 2, Math.random() * 2));
+                    world.dropItemNaturally(loc, itemStack).setVelocity(new Vector(Math.random() * 0.5, Math.random() * 0.25, Math.random() * 0.5));
                     player.getInventory().remove(itemStack);
                 }
             });
