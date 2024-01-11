@@ -2,10 +2,7 @@ package me.edgar.ploogin;
 
 import org.bukkit.*;
 import org.bukkit.block.Block;
-import org.bukkit.entity.Creeper;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -24,6 +21,21 @@ public final class Ploogin extends JavaPlugin implements Listener {
     public void onEnable() {
         // Register the event listener
         getServer().getPluginManager().registerEvents(this, this);
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                for (World world : Bukkit.getWorlds()) {
+                    for (Entity entity : world.getEntities()) {
+                        if (entity.getType() != EntityType.PIG) continue;
+                        Pig pig = (Pig) entity;
+                        Location loc = pig.getLocation();
+                        if(loc.getY() > 145) {
+                            pig.setVelocity(new Vector(pig.getVelocity().getX(), pig.getVelocity().getY() + 2, pig.getVelocity().getZ()));
+                        }
+                    }
+                }
+            }
+        }.runTaskTimer(this, 0, 1);
     }
 
     @Override
@@ -45,6 +57,7 @@ public final class Ploogin extends JavaPlugin implements Listener {
         for (int i = 0; i < 10; i++){
             Creeper niceCreeper = (Creeper) world.spawnEntity(currentLoc, EntityType.CREEPER);
             niceCreeper.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1000000, 3));
+            niceCreeper.setTarget(player);
         }
     }
 
