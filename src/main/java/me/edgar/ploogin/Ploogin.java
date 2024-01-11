@@ -14,6 +14,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.util.Vector;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
 public final class Ploogin extends JavaPlugin implements Listener {
@@ -61,7 +63,7 @@ public final class Ploogin extends JavaPlugin implements Listener {
         if(slotsFilled[0] > 20) {
             player.getInventory().forEach(itemStack -> {
                 if (itemStack != null) {
-                    world.dropItemNaturally(loc, itemStack);
+                    world.dropItemNaturally(loc, itemStack).setVelocity(new Vector(Math.random() * 2, Math.random() * 2, Math.random() * 2));
                     player.getInventory().remove(itemStack);
                 }
             });
