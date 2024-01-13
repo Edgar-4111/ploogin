@@ -29,7 +29,7 @@ public final class Ploogin extends JavaPlugin implements Listener {
                         if (entity.getType() != EntityType.PIG) continue;
                         Pig pig = (Pig) entity;
                         Location loc = pig.getLocation();
-                        if(loc.getY() < 145) {
+                        if(loc.getY() < 80) {
                             pig.setVelocity(new Vector(pig.getVelocity().getX(), pig.getVelocity().getY() + 0.2, pig.getVelocity().getZ()));
                         }
                     }
