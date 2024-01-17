@@ -1,2 +1,2 @@
 # Ploogin
-Plugin to torture
+Plugin that does nothing
